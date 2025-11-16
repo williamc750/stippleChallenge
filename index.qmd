@@ -10,37 +10,6 @@ execute:
 
 # 🎨 Selection Bias & Missing Data Challenge - Part 1
 
-::: {.callout-important}
-## 📊 Challenge Requirements
-
-**Your Task:** Reproduce the blue noise stippling process demonstrated below to create:
-
-1. A stippled version of your chosen image
-2. A progressive stippling GIF animation
-3. Post both to a GitHub Pages site with appropriate captions and a brief explanation
-
-**Part 2 Preview:** On November 18th, we'll tackle Part 2 of this challenge, where you'll create a statistical meme about selection bias and missing data using your stippled images.
-:::
-
-## The Problem: Can Algorithms Create Art?
-
-**Core Question:** How can we convert a photograph into an aesthetically pleasing pattern of dots that preserves the visual information of the original image?
-
-**The Challenge:** Blue noise stippling is a technique that converts images into patterns of dots (stipples) using algorithms that balance visual accuracy with spatial distribution. This challenge asks you to implement a modified "void and cluster" algorithm that combines importance sampling with blue noise distribution properties to create stippling patterns that are both visually accurate and spatially well-distributed.
-
-**Our Approach:** We'll use a modified void-and-cluster algorithm that:
-1. Creates an importance map identifying visually important regions
-2. Uses a toroidal (periodic) Gaussian kernel for repulsion to ensure blue noise properties
-3. Iteratively selects points with minimum energy
-4. Balances image content importance with blue noise spatial distribution
-
-::: {.callout-warning}
-## ⚠️ AI Partnership Required
-
-This challenge pushes boundaries intentionally. You'll tackle problems that normally require weeks of study, but with Cursor AI as your partner (and your brain keeping it honest), you can accomplish more than you thought possible.
-
-**The new reality:** The four stages of competence are Ignorance → Awareness → Learning → Mastery. AI lets us produce Mastery-level work while operating primarily in the Awareness stage. I focus on awareness training, you leverage AI for execution, and together we create outputs that used to require years of dedicated study.
-:::
 
 ## Introduction to Blue Noise Stippling
 

@@ -102,45 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="selection-bias-missing-data-challenge---part-1" class="level1">
 <h1>🎨 Selection Bias &amp; Missing Data Challenge - Part 1</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📊 Challenge Requirements
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Your Task:</strong> Reproduce the blue noise stippling process demonstrated below to create:</p>
-<ol type="1">
-<li>A stippled version of your chosen image</li>
-<li>A progressive stippling GIF animation</li>
-<li>Post both to a GitHub Pages site with appropriate captions and a brief explanation</li>
-</ol>
-<p><strong>Part 2 Preview:</strong> On November 18th, we’ll tackle Part 2 of this challenge, where you’ll create a statistical meme about selection bias and missing data using your stippled images.</p>
-</div>
-</div>
-<section id="the-problem-can-algorithms-create-art" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem-can-algorithms-create-art">The Problem: Can Algorithms Create Art?</h2>
-<p><strong>Core Question:</strong> How can we convert a photograph into an aesthetically pleasing pattern of dots that preserves the visual information of the original image?</p>
-<p><strong>The Challenge:</strong> Blue noise stippling is a technique that converts images into patterns of dots (stipples) using algorithms that balance visual accuracy with spatial distribution. This challenge asks you to implement a modified “void and cluster” algorithm that combines importance sampling with blue noise distribution properties to create stippling patterns that are both visually accurate and spatially well-distributed.</p>
-<p><strong>Our Approach:</strong> We’ll use a modified void-and-cluster algorithm that: 1. Creates an importance map identifying visually important regions 2. Uses a toroidal (periodic) Gaussian kernel for repulsion to ensure blue noise properties 3. Iteratively selects points with minimum energy 4. Balances image content importance with blue noise spatial distribution</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>⚠️ AI Partnership Required
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This challenge pushes boundaries intentionally. You’ll tackle problems that normally require weeks of study, but with Cursor AI as your partner (and your brain keeping it honest), you can accomplish more than you thought possible.</p>
-<p><strong>The new reality:</strong> The four stages of competence are Ignorance → Awareness → Learning → Mastery. AI lets us produce Mastery-level work while operating primarily in the Awareness stage. I focus on awareness training, you leverage AI for execution, and together we create outputs that used to require years of dedicated study.</p>
-</div>
-</div>
-</section>
 <section id="introduction-to-blue-noise-stippling" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-blue-noise-stippling">Introduction to Blue Noise Stippling</h2>
 <p>Blue noise stippling is a technique for converting images into a pattern of dots (stipples) that preserves the visual information of the original image while creating an aesthetically pleasing, evenly distributed pattern. This method follows the approach described by <a href="https://bartwronski.com/2022/08/31/progressive-image-stippling-and-greedy-blue-noise-importance-sampling/">Bart Wronski</a>.</p>
@@ -791,8 +752,8 @@ Row14 0.543 0.573 0.585 0.599 0.604 0.682 0.482 0.699 0.670 0.683 0.677 0.451
 Row15 0.557 0.558 0.587 0.595 0.601 0.595 0.424 0.675 0.638 0.656 0.608 0.445 </code></pre>
 </div>
 </div>
-<section id="challenge-requirements-1" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-requirements-1">Challenge Requirements 📋</h2>
+<section id="challenge-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-requirements">Challenge Requirements 📋</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li></ul>
 <div class="tab-content">
