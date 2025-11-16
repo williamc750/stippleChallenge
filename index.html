@@ -75,10 +75,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="loading-the-original-image" class="level2">
 <h2 class="anchored" data-anchor-id="loading-the-original-image">Loading the Original Image</h2>
 <p>First, let’s load an image that we’ll convert to a blue noise stippling pattern. You can use any image you’d like, but we’ll demonstrate with the provided example.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
 <div id="load-image" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>Image shape: (400, 400)
@@ -91,6 +87,7 @@ Image size: 400x400 pixels</code></pre>
 <figcaption>Original image before stippling</figcaption>
 </figure>
 </div>
+</section>
 <section id="importance-mapping" class="level2">
 <h2 class="anchored" data-anchor-id="importance-mapping">Importance Mapping</h2>
 <p>Before applying the stippling algorithm, we create an <strong>importance map</strong> that identifies which regions of the image should receive more stipples. The importance map is computed by:</p>
@@ -118,12 +115,6 @@ Image size: 400x400 pixels</code></pre>
 <li><strong>Control transition smoothness</strong>: Modify <code>extreme_sigma</code> and <code>mid_tone_sigma</code> to make transitions sharper or more gradual</li>
 </ul>
 <p><strong>No need to modify the stippling algorithm itself</strong>—all the tuning happens in this function. Experiment with different parameter values to achieve your desired dot distribution!</p>
-</div>
-</div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
 <section id="blue-noise-stippling-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="blue-noise-stippling-algorithm">Blue Noise Stippling Algorithm</h2>
 <p>The stippling algorithm uses a modified void-and-cluster approach that:</p>
@@ -135,30 +126,20 @@ Image size: 400x400 pixels</code></pre>
 <li>Adds Gaussian “splats” around selected points to prevent clustering</li>
 <li>Balances image content importance with blue noise spatial distribution</li>
 </ol>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+</section>
 <section id="preparing-the-working-image" class="level2">
 <h2 class="anchored" data-anchor-id="preparing-the-working-image">Preparing the Working Image</h2>
 <p>Before generating the stippling pattern, we prepare the image by resizing if necessary and computing the importance map.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <div id="prep-image" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Final image shape: (400, 400) (should be 2D for grayscale)
 Importance map computed</code></pre>
 </div>
 </div>
+</section>
 <section id="generating-the-stippled-image" class="level2">
 <h2 class="anchored" data-anchor-id="generating-the-stippled-image">Generating the Stippled Image</h2>
 <p>Now let’s apply the stippling algorithm to create the blue noise stippling pattern.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <div id="generate-stipple" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>Generating blue noise stippling pattern...
@@ -166,26 +147,20 @@ Generated 12800 stipple points
 Stipple pattern shape: (400, 400)</code></pre>
 </div>
 </div>
+</section>
 <section id="displaying-the-results" class="level2">
 <h2 class="anchored" data-anchor-id="displaying-the-results">Displaying the Results</h2>
 <p>Let’s visualize the original image, the importance map, and the stippled version side by side for comparison.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="index_files/figure-html/display-results-1.png" class="img-fluid figure-img"></p>
 <figcaption>Comparison of original image, importance map, and blue noise stippling</figcaption>
 </figure>
 </div>
+</section>
 <section id="progressive-stippling-animation" class="level2">
 <h2 class="anchored" data-anchor-id="progressive-stippling-animation">Progressive Stippling Animation</h2>
 <p>This section creates a GIF showing how the stippled image looks as more points are added sequentially. We’ll use the already-computed stippling points to generate frames at increments of 100 points.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div id="progressive-stippling" class="cell" data-message="false" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>Using existing stippling with 12800 points
@@ -195,30 +170,23 @@ Point counts: [1, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
 </div>
 </div>
 <p>Now let’s create the GIF animation:</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="progressive_stippling.gif" class="img-fluid figure-img"></p>
 <figcaption>Progressive stippling animation showing the sequential build-up of points. Each frame represents an increment of 100 points, demonstrating how the blue noise stippling pattern develops as more points are added.</figcaption>
 </figure>
 </div>
+</section>
 <section id="appendix-average-tone-by-section" class="level2">
 <h2 class="anchored" data-anchor-id="appendix-average-tone-by-section">Appendix: Average Tone by Section</h2>
 <p>To understand the distribution of tones across the image and identify the center of skin tone, we divide the image into a grid of small sections and compute the average brightness in each section.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="index_files/figure-html/tone-analysis-1.png" class="img-fluid figure-img"></p>
 <figcaption>Grid showing average tone in each section</figcaption>
 </figure>
 </div>
-<div id="541de853" class="cell" data-execution_count="10">
+<div id="6e989d11" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grid size: 16 rows × 12 columns
@@ -292,54 +260,16 @@ Row14 0.543 0.573 0.585 0.599 0.604 0.682 0.482 0.699 0.670 0.683 0.677 0.451
 Row15 0.557 0.558 0.587 0.595 0.601 0.595 0.424 0.675 0.638 0.656 0.608 0.445 </code></pre>
 </div>
 </div>
+</section>
 <section id="challenge-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-requirements">Challenge Requirements 📋</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="index_files/figure-html/challenge-comparison-1.png" class="img-fluid figure-img"></p>
 <figcaption>Side-by-side comparison of original and stippled images</figcaption>
 </figure>
 </div>
-</div>
-</div>
-</div>
 </section>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</section>
-</div>
 </div>
 </div>
 </section>

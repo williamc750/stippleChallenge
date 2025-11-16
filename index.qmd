@@ -21,10 +21,6 @@ The method uses a modified "void and cluster" algorithm that combines importance
 
 First, let's load an image that we'll convert to a blue noise stippling pattern. You can use any image you'd like, but we'll demonstrate with the provided example.
 
-::: {.panel-tabset}
-
-### Python
-
 ```{python}
 #| label: load-image
 #| echo: false
@@ -59,7 +55,6 @@ print(f"Image size: {img_array.shape[0]}x{img_array.shape[1]} pixels")
 ```
 
 ![Original image before stippling](index_files/figure-html/load-image-1.png){fig-cap="Original image before stippling"}
-:::
 
 ## Importance Mapping
 
@@ -81,11 +76,6 @@ Before applying the stippling algorithm, we create an **importance map** that id
 - **Control transition smoothness**: Modify `extreme_sigma` and `mid_tone_sigma` to make transitions sharper or more gradual
 
 **No need to modify the stippling algorithm itself**—all the tuning happens in this function. Experiment with different parameter values to achieve your desired dot distribution!
-:::
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: importance-map
@@ -168,8 +158,6 @@ def compute_importance(
     return importance
 ```
 
-:::
-
 ## Blue Noise Stippling Algorithm
 
 The stippling algorithm uses a modified void-and-cluster approach that:
@@ -180,10 +168,6 @@ The stippling algorithm uses a modified void-and-cluster approach that:
 4. Iteratively selects points with minimum energy
 5. Adds Gaussian "splats" around selected points to prevent clustering
 6. Balances image content importance with blue noise spatial distribution
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: stippling-functions
@@ -290,15 +274,9 @@ def void_and_cluster(
     return final_stipple, np.array(samples)
 ```
 
-:::
-
 ## Preparing the Working Image
 
 Before generating the stippling pattern, we prepare the image by resizing if necessary and computing the importance map.
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: prep-image
@@ -340,15 +318,9 @@ importance_map = compute_importance(
 print("Importance map computed")
 ```
 
-:::
-
 ## Generating the Stippled Image
 
 Now let's apply the stippling algorithm to create the blue noise stippling pattern.
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: generate-stipple
@@ -371,14 +343,9 @@ print(f"Generated {len(samples)} stipple points")
 print(f"Stipple pattern shape: {stipple_pattern.shape}")
 ```
 
-:::
 ## Displaying the Results
 
 Let's visualize the original image, the importance map, and the stippled version side by side for comparison.
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: display-results
@@ -406,7 +373,7 @@ axes[2].set_title('Blue Noise Stippling', fontsize=14, fontweight='bold', pad=10
 
 plt.tight_layout()
 ```
-:::
+
 ![Comparison of original image, importance map, and blue noise stippling](index_files/figure-html/display-results-1.png){fig-cap="Comparison of original image, importance map, and blue noise stippling"}
 
 
@@ -415,10 +382,6 @@ plt.tight_layout()
 ## Progressive Stippling Animation
 
 This section creates a GIF showing how the stippled image looks as more points are added sequentially. We'll use the already-computed stippling points to generate frames at increments of 100 points.
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: progressive-stippling
@@ -466,13 +429,8 @@ for i in range(1, len(samples)):
 print(f"Generated {len(frames)} frames")
 print(f"Point counts: {point_counts}")
 ```
-:::
 
 Now let's create the GIF animation:
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: create-gif
@@ -517,17 +475,11 @@ except:
     pass  # Silently fail if display doesn't work
 ```
 
-:::
-
 ![Progressive stippling animation showing the sequential build-up of points. Each frame represents an increment of 100 points, demonstrating how the blue noise stippling pattern develops as more points are added.](progressive_stippling.gif)
 
 ## Appendix: Average Tone by Section
 
 To understand the distribution of tones across the image and identify the center of skin tone, we divide the image into a grid of small sections and compute the average brightness in each section.
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: tone-analysis
@@ -636,13 +588,7 @@ for i in range(grid_rows):
     print()
 ```
 
-:::
-
 ## Challenge Requirements 📋
-
-::: {.panel-tabset}
-
-### Python
 
 ```{python}
 #| label: challenge-comparison
