@@ -54,26 +54,11 @@ ax.axis('off')
 ax.set_title('Original Image', fontsize=14, fontweight='bold', pad=10)
 plt.tight_layout()
 
-# Save and display figure
-# Quarto will automatically capture the figure for the document
-# For interactive viewing, save and open the image file
-import os
-import sys
-temp_file = 'temp_original_image.png'
-plt.savefig(temp_file, dpi=100, bbox_inches='tight')
-try:
-    if os.name == 'nt':  # Windows
-        os.startfile(temp_file)
-    elif sys.platform == 'darwin':  # macOS
-        os.system(f'open {temp_file}')
-    else:  # Linux
-        os.system(f'xdg-open {temp_file}')
-except:
-    pass  # Silently fail if display doesn't work
-
 print(f"Image shape: {img_array.shape}")
 print(f"Image size: {img_array.shape[0]}x{img_array.shape[1]} pixels")
 ```
+
+![Original image before stippling](index_files/figure-html/load-image-1.png){fig-cap="Original image before stippling"}
 
 
 ## Importance Mapping
@@ -420,22 +405,9 @@ axes[2].axis('off')
 axes[2].set_title('Blue Noise Stippling', fontsize=14, fontweight='bold', pad=10)
 
 plt.tight_layout()
-
-# Save and display figure
-import os
-import sys
-temp_file = 'temp_display_results.png'
-plt.savefig(temp_file, dpi=100, bbox_inches='tight')
-try:
-    if os.name == 'nt':  # Windows
-        os.startfile(temp_file)
-    elif sys.platform == 'darwin':  # macOS
-        os.system(f'open {temp_file}')
-    else:  # Linux
-        os.system(f'xdg-open {temp_file}')
-except:
-    pass  # Silently fail if display doesn't work
 ```
+
+![Comparison of original image, importance map, and blue noise stippling](index_files/figure-html/display-results-1.png){fig-cap="Comparison of original image, importance map, and blue noise stippling"}
 
 
 
@@ -622,22 +594,12 @@ for i in range(grid_rows):
 
 plt.colorbar(im, ax=axes[1], label='Average Brightness')
 plt.tight_layout()
+```
 
-# Save and display figure
-import os
-import sys
-temp_file = 'temp_tone_analysis.png'
-plt.savefig(temp_file, dpi=100, bbox_inches='tight')
-try:
-    if os.name == 'nt':  # Windows
-        os.startfile(temp_file)
-    elif sys.platform == 'darwin':  # macOS
-        os.system(f'open {temp_file}')
-    else:  # Linux
-        os.system(f'xdg-open {temp_file}')
-except:
-    pass  # Silently fail if display doesn't work
+![Grid showing average tone in each section](index_files/figure-html/tone-analysis-1.png){fig-cap="Grid showing average tone in each section"}
 
+```{python}
+#| echo: false
 # Print summary statistics
 print(f"\nGrid size: {grid_rows} rows × {grid_cols} columns")
 print(f"Section size: approximately {section_h} × {section_w} pixels")
@@ -701,21 +663,8 @@ axes[1].axis('off')
 axes[1].set_title('Stippled Image', fontsize=16, fontweight='bold', pad=10)
 
 plt.tight_layout()
-
-# Save and display figure
-import os
-import sys
-temp_file = 'temp_challenge_comparison.png'
-plt.savefig(temp_file, dpi=100, bbox_inches='tight')
-try:
-    if os.name == 'nt':  # Windows
-        os.startfile(temp_file)
-    elif sys.platform == 'darwin':  # macOS
-        os.system(f'open {temp_file}')
-    else:  # Linux
-        os.system(f'xdg-open {temp_file}')
-except:
-    pass  # Silently fail if display doesn't work
 ```
+
+![Side-by-side comparison of original and stippled images](index_files/figure-html/challenge-comparison-1.png){fig-cap="Side-by-side comparison of original and stippled images"}
 
 
