@@ -59,7 +59,7 @@ print(f"Image size: {img_array.shape[0]}x{img_array.shape[1]} pixels")
 ```
 
 ![Original image before stippling](index_files/figure-html/load-image-1.png){fig-cap="Original image before stippling"}
-
+:::
 
 ## Importance Mapping
 
@@ -168,7 +168,7 @@ def compute_importance(
     return importance
 ```
 
-
+:::
 
 ## Blue Noise Stippling Algorithm
 
@@ -290,7 +290,7 @@ def void_and_cluster(
     return final_stipple, np.array(samples)
 ```
 
-
+:::
 
 ## Preparing the Working Image
 
@@ -340,7 +340,7 @@ importance_map = compute_importance(
 print("Importance map computed")
 ```
 
-
+:::
 
 ## Generating the Stippled Image
 
@@ -371,7 +371,7 @@ print(f"Generated {len(samples)} stipple points")
 print(f"Stipple pattern shape: {stipple_pattern.shape}")
 ```
 
-
+:::
 ## Displaying the Results
 
 Let's visualize the original image, the importance map, and the stippled version side by side for comparison.
@@ -406,7 +406,7 @@ axes[2].set_title('Blue Noise Stippling', fontsize=14, fontweight='bold', pad=10
 
 plt.tight_layout()
 ```
-
+:::
 ![Comparison of original image, importance map, and blue noise stippling](index_files/figure-html/display-results-1.png){fig-cap="Comparison of original image, importance map, and blue noise stippling"}
 
 
@@ -466,7 +466,7 @@ for i in range(1, len(samples)):
 print(f"Generated {len(frames)} frames")
 print(f"Point counts: {point_counts}")
 ```
-
+:::
 
 Now let's create the GIF animation:
 
@@ -517,7 +517,7 @@ except:
     pass  # Silently fail if display doesn't work
 ```
 
-
+:::
 
 ![Progressive stippling animation showing the sequential build-up of points. Each frame represents an increment of 100 points, demonstrating how the blue noise stippling pattern develops as more points are added.](progressive_stippling.gif)
 
@@ -596,6 +596,7 @@ plt.colorbar(im, ax=axes[1], label='Average Brightness')
 plt.tight_layout()
 ```
 
+
 ![Grid showing average tone in each section](index_files/figure-html/tone-analysis-1.png){fig-cap="Grid showing average tone in each section"}
 
 ```{python}
@@ -635,7 +636,7 @@ for i in range(grid_rows):
     print()
 ```
 
-
+:::
 
 ## Challenge Requirements 📋
 
