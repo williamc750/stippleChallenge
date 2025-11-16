@@ -63,10 +63,12 @@ First, let's load an image that we'll convert to a blue noise stippling pattern.
 
 import numpy as np
 from PIL import Image
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for Quarto
 import matplotlib.pyplot as plt
 
 # Load the image
-img_path = 'fleischhacker.jpg'
+img_path = 'Chen.jpg'
 original_img = Image.open(img_path)
 
 # Convert to grayscale if needed
@@ -82,39 +84,28 @@ ax.imshow(img_array, cmap='gray', vmin=0, vmax=1)
 ax.axis('off')
 ax.set_title('Original Image', fontsize=14, fontweight='bold', pad=10)
 plt.tight_layout()
-plt.show()
+
+# Save and display figure
+# Quarto will automatically capture the figure for the document
+# For interactive viewing, save and open the image file
+import os
+import sys
+temp_file = 'temp_original_image.png'
+plt.savefig(temp_file, dpi=100, bbox_inches='tight')
+try:
+    if os.name == 'nt':  # Windows
+        os.startfile(temp_file)
+    elif sys.platform == 'darwin':  # macOS
+        os.system(f'open {temp_file}')
+    else:  # Linux
+        os.system(f'xdg-open {temp_file}')
+except:
+    pass  # Silently fail if display doesn't work
 
 print(f"Image shape: {img_array.shape}")
 print(f"Image size: {img_array.shape[0]}x{img_array.shape[1]} pixels")
 ```
 
-### R
-
-```{r}
-#| label: load-image-r
-#| echo: true
-#| fig-cap: "Original image before stippling"
-
-library(imager)
-library(ggplot2)
-
-# Load the image
-img_path <- 'fleischhacker.jpg'
-original_img <- load.image(img_path)
-
-# Convert to grayscale if needed
-# Check channels (dim[3]), not depth (dim[4])
-if(dim(original_img)[3] == 3) {
-  original_img <- grayscale(original_img)
-}
-
-# Display the original image
-plot(original_img, axes = FALSE, main = "Original Image")
-
-cat("Image dimensions:", dim(original_img)[1], "x", dim(original_img)[2], "pixels\n")
-```
-
-:::
 
 ## Importance Mapping
 
@@ -725,7 +716,6 @@ axes[2].axis('off')
 axes[2].set_title('Blue Noise Stippling', fontsize=14, fontweight='bold', pad=10)
 
 plt.tight_layout()
-plt.show()
 ```
 
 ### R
@@ -769,6 +759,8 @@ This section creates a GIF showing how the stippled image looks as more points a
 
 import numpy as np
 from PIL import Image
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for Quarto
 import matplotlib.pyplot as plt
 from matplotlib.animation import PillowWriter
 
@@ -899,7 +891,11 @@ print(f"Point counts: {point_counts}")
 #| warning: false
 
 # Create GIF animation using magick package
-library(magick)
+# Install magick if not available
+if (!require("magick", quietly = TRUE)) {
+  install.packages("magick", repos = "https://cloud.r-project.org")
+  library(magick)
+}
 
 cat("Creating GIF animation...\n")
 
@@ -1006,7 +1002,6 @@ for i in range(grid_rows):
 
 plt.colorbar(im, ax=axes[1], label='Average Brightness')
 plt.tight_layout()
-plt.show()
 
 # Print summary statistics
 print(f"\nGrid size: {grid_rows} rows × {grid_cols} columns")
@@ -1186,7 +1181,6 @@ axes[1].axis('off')
 axes[1].set_title('Stippled Image', fontsize=16, fontweight='bold', pad=10)
 
 plt.tight_layout()
-plt.show()
 ```
 
 ### R
